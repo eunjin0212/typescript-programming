@@ -23,11 +23,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Person_1 = __importStar(require("./person/Person"));
-const testMakePerson = () => {
-    let Kane = (0, Person_1.makePerson)('Kane');
-    let Jack = new Person_1.default('Jack');
-    console.log(Kane, Jack);
-};
-testMakePerson();
-//# sourceMappingURL=index.js.map
+exports.makePerson = void 0;
+const U = __importStar(require("../utils/makeRandomNumber"));
+class Person {
+    constructor(name, age = U.makeRandomNumber()) {
+        this.name = name;
+        this.age = age;
+    }
+}
+exports.default = Person;
+const makePerson = (name, age = U.makeRandomNumber()) => ({ name, age });
+exports.makePerson = makePerson;
+//# sourceMappingURL=Person.js.map
